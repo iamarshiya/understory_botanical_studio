@@ -2,6 +2,8 @@
 
 An immersive, high-performance e-commerce experience for a boutique botanical studio. This project showcases intricate floral arrangements through a rich, interactive user interface featuring smooth scrolling, complex animations, and a custom bouquet builder.
 
+Live Link: https://understorybotanicalstudio.vercel.app/
+
 ## ✨ Features
 
 - **Immersive User Interface**:
