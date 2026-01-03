@@ -2,8 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-  @apply bg-verdant-cream text-verdant-forest antialiased overflow-x-hidden;
+@layer base {
+  body {
+    @apply bg-verdant-cream text-verdant-forest antialiased overflow-x-hidden;
+  }
+
+  html {
+    @apply overflow-x-hidden;
+  }
+}
+
+#root {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* Custom Scrollbar */

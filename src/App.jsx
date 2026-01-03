@@ -56,33 +56,35 @@ function App() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-verdant-cream text-verdant-forest selection:bg-verdant-sage selection:text-white">
-      <Navigation
-        onMenuClick={() => setIsMenuOpen(true)}
-        onCartClick={() => setIsCartOpen(true)}
-        cartCount={cartItems.length}
-      />
+    <div className="w-full min-h-screen bg-verdant-cream text-verdant-forest selection:bg-verdant-sage selection:text-white overflow-x-hidden">
+      <div className="relative w-full overflow-x-hidden">
+        <Navigation
+          onMenuClick={() => setIsMenuOpen(true)}
+          onCartClick={() => setIsCartOpen(true)}
+          cartCount={cartItems.length}
+        />
 
-      <MenuOverlay isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+        <MenuOverlay isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
-      <CartOverlay
-        isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
-        cartItems={cartItems}
-        onRemove={removeFromCart}
-      />
+        <CartOverlay
+          isOpen={isCartOpen}
+          onClose={() => setIsCartOpen(false)}
+          cartItems={cartItems}
+          onRemove={removeFromCart}
+        />
 
-      <main>
-        <Hero />
-        <About />
-        <SignatureArrangements addToCart={addToCart} />
-        <SeasonalCollections />
-        <BouquetBuilder addToCart={addToCart} />
-        <Process />
-        <Events />
-        <Testimonials />
-        <Contact />
-      </main>
+        <main className="relative z-10 w-full overflow-x-hidden">
+          <Hero />
+          <About />
+          <SignatureArrangements addToCart={addToCart} />
+          <SeasonalCollections />
+          <BouquetBuilder addToCart={addToCart} />
+          <Process />
+          <Events />
+          <Testimonials />
+          <Contact />
+        </main>
+      </div>
     </div>
   );
 }

@@ -14,20 +14,19 @@ export default function CartOverlay({ isOpen, onClose, cartItems = [], onRemove 
 
     const handleCheckout = () => {
         setIsCheckingOut(true);
-        // Simulate API call and clear cart
         setTimeout(() => {
-            onRemove(null, true); // We'll need to update App.jsx to handle a 'clear all' signal or just wait
+            onRemove(null, true);
             setTimeout(() => {
                 setIsCheckingOut(false);
                 onClose();
-            }, 3000); // Show success message for 3 seconds
-        }, 1500); // Processing time
+            }, 3000);
+        }, 1500);
     };
 
     React.useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
-            document.documentElement.style.overflow = 'hidden'; // Lock html as well for some mobile browsers
+            document.documentElement.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'unset';
             document.documentElement.style.overflow = 'unset';

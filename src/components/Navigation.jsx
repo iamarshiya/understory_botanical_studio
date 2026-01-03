@@ -15,26 +15,28 @@ export default function Navigation({ onMenuClick, onCartClick, cartCount = 0 }) 
 
     return (
         <nav className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-6 transition-all duration-500 ${scrolled ? 'bg-verdant-forest/30 backdrop-blur-md shadow-sm border-b border-verdant-cream/10 py-4' : 'bg-transparent py-6 mix-blend-difference'}`}>
-            <div className="relative flex justify-between items-center max-w-[1920px] mx-auto text-verdant-cream">
+            <div className="flex justify-between items-center max-w-[1920px] mx-auto text-verdant-cream">
                 {/* Left: Menu Toggle */}
-                <div className="flex items-center gap-4 group cursor-pointer z-[60]" onClick={onMenuClick}>
-                    <Menu className="w-6 h-6 group-hover:scale-110 transition-transform duration-500 ease-out" />
-                    <span className="hidden md:block font-sans tracking-widest text-xs uppercase opacity-80 group-hover:opacity-100 transition-opacity">Menu</span>
+                <div className="flex-1 flex items-center">
+                    <div className="flex items-center gap-4 group cursor-pointer z-[60]" onClick={onMenuClick}>
+                        <Menu className="w-6 h-6 group-hover:scale-110 transition-transform duration-500 ease-out" />
+                        <span className="hidden md:block font-sans tracking-widest text-xs uppercase opacity-80 group-hover:opacity-100 transition-opacity">Menu</span>
+                    </div>
                 </div>
 
                 {/* Center: Brand Title */}
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none w-max">
+                <div className="flex-none text-center px-4">
                     <h1
-                        className="font-serif text-lg sm:text-xl md:text-3xl tracking-wide cursor-pointer whitespace-nowrap leading-tight pointer-events-auto"
+                        className="font-serif text-lg md:text-3xl tracking-wide cursor-pointer leading-tight max-w-[45vw] sm:max-w-none truncate sm:whitespace-nowrap"
                         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     >
-                        Understory<span className="hidden sm:inline"> - Botanical Studio</span>
+                        Understory<span className="hidden md:inline"> - Botanical Studio</span>
                     </h1>
                 </div>
 
                 {/* Right: Cart Icon */}
-                <div className="flex items-center gap-6 z-[60]">
-                    <button className="relative cursor-pointer hover:scale-110 transition-transform duration-500 ease-out" onClick={onCartClick}>
+                <div className="flex-1 flex items-center justify-end">
+                    <button className="relative cursor-pointer hover:scale-110 transition-transform duration-500 ease-out z-[60]" onClick={onCartClick}>
                         <ShoppingBag className="w-5 h-5" />
                         <AnimatePresence>
                             {cartCount > 0 && (
